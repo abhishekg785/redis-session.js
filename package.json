@@ -15,12 +15,18 @@
     "redis",
     "cookie",
     "node",
-    "js"
+    "js",
+    "socket",
+    "socket.io"
   ],
   "author": "abhishekg785 <abhishekg785@gmail.com> (http://abhishekg785.github.io/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/abhishekg785/redis-session.js/issues"
   },
-  "homepage": "https://github.com/abhishekg785/redis-session.js#readme"
+  "homepage": "https://github.com/abhishekg785/redis-session.js#readme",
+  "dependencies": {
+    "connect-redis": "^3.1.0",
+    "redis": "^2.6.2"
+  }
 }
