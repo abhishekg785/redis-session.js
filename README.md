@@ -28,17 +28,30 @@ Using socketio-session , one can simply get the session info.
   Set the parameters of the session by:
 
   here we need session secret and session key, you can directly pass these params directly or create a config.js file and set the variables there and simply import the config.js file and use the params ( config.sessionSecret and config.sessionKey ).
+
+  here is the config.js file :
+
+    module.exports = {
+      'sessionKey' : < key >,
+      'sessionSecret' : '<secret>'
+    };
+
+  simply require the file using:
+
+    var config = require('./config');
+
+  and then:
   
-  app.use(session({
-    store : socketSession.getRedisStore(),   // get the redisStore
+    app.use(session({
+      store : socketSession.getRedisStore(),   // get the redisStore
 
-    secret : < sessionSecret || config.sessionSecret >,
+      secret : < sessionSecret || config.sessionSecret >,
 
-    resave : true,
+      resave : true,
 
-    saveUninitialized : true,
+      saveUninitialized : true,
 
-    key : < sessionKey || config.sessionKey >                    // important
-  }));
+      key : < sessionKey || config.sessionKey >                    // important
+    }));
 
   -
