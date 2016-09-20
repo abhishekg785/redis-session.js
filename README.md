@@ -41,7 +41,7 @@ Using socketio-session , one can simply get the session info.
     var config = require('./config');
 
   and then:
-  
+
     app.use(session({
       store : socketSession.getRedisStore(),   // get the redisStore
 
@@ -54,4 +54,32 @@ Using socketio-session , one can simply get the session info.
       key : < sessionKey || config.sessionKey >                    // important
     }));
 
-  -
+  Now you are ready to go :)
+
+##Use
+  socketio-session provides two functions fetch the session object:
+
+  //takes 3 args and a callback function
+
+    parseCookieViaArgs((sessionSecret, sessionKey, socket, function(session){
+      console.log(session); // and we have our session :)
+    });
+
+  //takes 2 args and a callback function
+
+    parseCookieViaObject(config, socket, function(session){
+        console.log(session); // and we have our session :)
+    });
+
+  You can simply use them in the socket.io middlewareor any other socket.io namespace
+
+  eg :
+
+    io.use(function(socket, next){
+      parseCookieViaArgs((sessionSecret, sessionKey, socket, function(session){
+        console.log(session); // and we have our session :)
+
+        //code for authenticating the user
+
+      });
+    });
