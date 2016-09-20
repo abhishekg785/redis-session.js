@@ -1,6 +1,11 @@
+/**
+* @author { abhishek goswami }
+* @github { abhishekg785 }
+*/
+
 module.exports = Functions = {
-  get : function(handshake, callback){
-    var sessionId = Functions.getSessionId(handshake);
+  get : function(handshake, sessionKey, callback){
+    var sessionId = Functions.getSessionId(handshake, sessionKey);
     Functions.getSessionBySessionID(sessionId, function(err, session){
       if(err) callback(err);
       if(callback != undefined){

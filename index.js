@@ -1,7 +1,7 @@
 /**
-* @author { abhishek goswami (hiro) }
-* @github { abhishekg785 }
-* @gmail { abhishekg785@gmail.com }
+* @author  abhishek goswami (hiro)
+* @github  abhishekg785
+* @gmail   abhishekg785@gmail.com
 */
 
 var cookieParser = require('cookie-parser'),
@@ -17,7 +17,6 @@ module.exports = {
   * @return { null }
   */
   initializeRedis : function(session){
-    console.log('inside the initilzise redis store');
     var RedisStore = require('connect-redis')(session);
     redisStore = new RedisStore({ client: redisClient });
   },
@@ -26,13 +25,34 @@ module.exports = {
     return redisStore;
   },
 
-  parseCookie : function(sessionSecret, socket, callback){
+  parseCookieViaArgs : function(sessionSecret, sessionKey, socket, callback){
     var parseCookie = cookieParser(sessionSecret),
         handshake = socket.request;
     parseCookie(handshake, null, function(err, data){
-      Functions.get(handshake, function(err, session){
+      Functions.get(handshake, sessionKey, function(err, session){
         if(err) callback(err);
         if(!session) callback('no session');
+        if(session){
+          callback(session);
+        }
+      });
+    });
+  },
+
+  /**
+  * @param { configObject, socket, callback }
+  * @return { session }
+  * configObject : { sessionSecret : '', sessionKey : '' }
+  */
+  parseCookieViaObject : function(configObject, socket, callback){
+    var sessionSecret = configObject.sessionSecret,
+        sessionKey = configObject.sessionKey,
+        handshake = socket.request,
+        parseCookie = cookieParser(sessionSecret);
+    parseCookie(handshake, null, function(err, data){
+      Functions.get(handshake, sessionKey, function(err, session){
+        if(err) callback(err)
+        if(!session) callback('no session')
         if(session){
           callback(session);
         }
