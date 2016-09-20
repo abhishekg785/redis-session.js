@@ -100,7 +100,7 @@ Using socketio-session , one can simply get the session info.
   0.1.0
 
 ##Issues
-  Feel free to contribute and fixes
+  Feel free to contribute and bug fixes
 
   https://github.com/abhishekg785/redis-session.js
 
