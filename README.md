@@ -57,21 +57,22 @@ Using socketio-session , one can simply get the session info.
   Now you are ready to go :)
 
 ##Use
-  socketio-session provides two functions fetch the session object:
+  socketio-session provides two functions to fetch the session object:
 
-  //takes 3 args and a callback function
+  First one takes 3 args and a callback function
 
     parseCookieViaArgs((sessionSecret, sessionKey, socket, function(session){
       console.log(session); // and we have our session :)
     });
 
-  //takes 2 args and a callback function
+  Second one takes 2 args and a callback function
+  here config is the object having => { sessionSecret : ' <secret> ' ,  sessionKey : ' <key> '}
 
     parseCookieViaObject(config, socket, function(session){
         console.log(session); // and we have our session :)
     });
 
-  You can simply use them in the socket.io middlewareor any other socket.io namespace
+  You can simply use them in the socket.io middleware or any other socket.io namespace
 
   eg :
 
