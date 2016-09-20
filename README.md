@@ -95,3 +95,14 @@ Using socketio-session , one can simply get the session info.
 
       });
     });
+
+##Version
+  0.1.0
+
+##Issues
+  Feel free to contribute and fixes
+
+  https://github.com/abhishekg785/redis-session.js
+
+##License
+  MIT
