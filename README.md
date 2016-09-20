@@ -77,7 +77,18 @@ Using socketio-session , one can simply get the session info.
   eg :
 
     io.use(function(socket, next){
-      parseCookieViaArgs((sessionSecret, sessionKey, socket, function(session){
+      socketSession.parseCookieViaArgs((sessionSecret, sessionKey, socket, function(session){
+        console.log(session); // and we have our session :)
+
+        //code for authenticating the user
+
+      });
+    });
+
+  or
+
+    io.use(function(socket, next){
+      socketSession.parseCookieViaObject((configObject, socket, function(session){
         console.log(session); // and we have our session :)
 
         //code for authenticating the user
