@@ -26,7 +26,6 @@ Using socketio-session , one can simply get the session info.
 
   <code>
   app.use(session({
-
     store : socketSession.getRedisStore(),   // get the redisStore
 
     secret : < sessionSecret || config.sessionSecret >,
@@ -36,7 +35,6 @@ Using socketio-session , one can simply get the session info.
     saveUninitialized : true,
 
     key : < sessionKey || config.sessionKey >                    // important
-
   }));
   </code>
   -
