@@ -1,5 +1,5 @@
 {
-  "name": "redis_session",
+  "name": "socketio-session",
   "version": "0.1.0",
   "description": "node module to parse cookie and get the session id and retrieve info from the session stored in redis.",
   "main": "index.js",
@@ -17,7 +17,8 @@
     "node",
     "js",
     "socket",
-    "socket.io"
+    "socket.io",
+    "socketio"
   ],
   "author": "abhishekg785 <abhishekg785@gmail.com> (http://abhishekg785.github.io/)",
   "license": "MIT",
