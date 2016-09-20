@@ -14,17 +14,21 @@ Using socketio-session , one can simply get the session info.
 ##Setup
   install socketio-session
 
-  <code>
+
     sudo apt-get install socketio-session
-  </code>
 
-  <code>
-  var socketSession = require('socketio-session');
+  Require socketio-session
 
-  socketSession.initializeRedis(session);             // here session is the express-session : var session = require('express-session')  
-  </code>
+    var socketSession = require('socketio-session');
 
-  <code>
+  Initialize the Redis
+
+    socketSession.initializeRedis(session); // here session is the express-session using var session = require('express-session')  
+
+  Set the parameters of the session by:
+
+  here we need session secret and session key, you can directly pass these params directly or create a config.js file and set the variables there and simply import the config.js file and use the params ( config.sessionSecret and config.sessionKey ).
+  
   app.use(session({
     store : socketSession.getRedisStore(),   // get the redisStore
 
@@ -36,5 +40,5 @@ Using socketio-session , one can simply get the session info.
 
     key : < sessionKey || config.sessionKey >                    // important
   }));
-  </code>
+
   -
