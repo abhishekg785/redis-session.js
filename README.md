@@ -15,7 +15,7 @@ Using socketio-session , one can simply get the session info.
   install socketio-session
 
 
-    sudo apt-get install socketio-session
+    sudo npm install socketio-session
 
   Require socketio-session
 
@@ -97,7 +97,7 @@ Using socketio-session , one can simply get the session info.
     });
 
 ##Version
-  0.1.0
+  0.2.0
 
 ##Issues
   Feel free to contribute and bug fixes
