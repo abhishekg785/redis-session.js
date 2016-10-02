@@ -1,7 +1,7 @@
 socketio-session
 ==============
 
-A simple NPM module for session managament in socket.io using express.js (Node.js Framework).
+A simple node package for session managament in socket.io using express.js (Node.js Framework).
 The main problem faced using socket.io is handling sessions. We may need session info for authentication and other factors.
 Using socketio-session , one can simply get the session info.
 
